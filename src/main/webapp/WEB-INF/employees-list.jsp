@@ -16,7 +16,8 @@
 <%@ include file="/WEB-INF/partials/navbar.jsp" %>
 <script type="text/javascript">
 
-	onunload = function()
+    // no longer used
+/*	onunload = function()
 	{
 		var perpage = document.getElementById('perpage');
 		self.name = 'fooidx' + perpage.selectedIndex;
@@ -26,42 +27,69 @@
 	{
 		var idx, perpage = document.getElementById('perpage');
 		perpage.selectedIndex = (idx = self.name.split('fooidx')) ?	idx[1] : 0;
-	};
+	};*/
 
 </script>
 <div class="container">
     <h1>Employees List</h1>
-    <form action="/employees-list" method="post">
-        <div class="float-left clear-fix col-12">
-            <div class="col-3 float-left m-3 ">
-                <label for="perpage">Show how many per page?</label>
-                <select id="perpage" class="form-control form-control-sm " name="perpage"
-                        onchange="options[selectedIndex].value&&self.location.reload(true)">
+<%--    <form action="/employees-list" method="post">--%>
+<%--        <div class="float-left clear-fix col-12">--%>
+<%--            <div class="col-3 float-left m-3 ">--%>
+<%--                <label for="perpage">Show how many per page?</label>--%>
+<%--                <select id="perpage" class="form-control form-control-sm " name="perpage"--%>
+<%--                        onchange="options[selectedIndex].value&&self.location.reload(true)">--%>
 
-                    <option value="6">6</option>
-                    <option value="12" >12</option>
-                    <option value="18">18</option>
-                    <option value="24">24</option>
-                    <option value="30">30</option>
-                </select>
+<%--                    <option value="6">6</option>--%>
+<%--                    <option value="12" >12</option>--%>
+<%--                    <option value="18">18</option>--%>
+<%--                    <option value="24">24</option>--%>
+<%--                    <option value="30">30</option>--%>
+<%--                </select>--%>
+<%--            </div>--%>
+
+<%--            &lt;%&ndash; buttons to move page forard or backward.&ndash;%&gt;--%>
+<%--            <div class="col-6 float-right m-3 form-row">--%>
+
+<%--                <button class=" btn btn-light float-right" type="submit" name="pagenum"--%>
+<%--                        value="${pagenum} -1">Previous--%>
+<%--                    Page</button>--%>
+<%--                <button class=" btn btn-light float-right" name="pagenum" value=${pagenum}>--%>
+<%--                    Page Number <span class="badge badge-light">${pagenum}</span>--%>
+<%--                </button>--%>
+<%--                <button class=" btn btn-light float-right" type="submit" name="pagenum"--%>
+<%--                       value="${pagenum} +1" >Next Page--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+
+<%--    </form>--%>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Employee Search</a>
+        <form class="form-inline" method="post">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="name" value="name" name="stype"
+                       checked="checked">
+                <label class="form-check-label" for="name" >Name</label>
             </div>
-
-            <%-- buttons to move page forard or backward.--%>
-            <div class="col-6 float-right m-3 form-row">
-
-                <button class=" btn btn-light float-right" type="submit" name="pagenum"
-                        value="${pagenum} -1">Previous
-                    Page</button>
-                <button class=" btn btn-light float-right" name="pagenum" value=${pagenum}>
-                    Page Number <span class="badge badge-light">${pagenum}</span>
-                </button>
-                <button class=" btn btn-light float-right" type="submit" name="pagenum"
-                       value="${pagenum} +1" >Next Page
-                </button>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="id" value="id" name="stype">
+                <label class="form-check-label" for="id">ID</label>
             </div>
-        </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="dept" value="dept" name="stype">
+                <label class="form-check-label" for="dept">Department</label>
+            </div>
+            <input class="form-control mr-sm-5"
+                   type="search"
+                   placeholder="Search"
+                   name="search"
+                   id="search"
+                   aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
 
-    </form>
     <div class="col-12">
         <c:forEach var="emp" items="${emps}">
 
@@ -82,5 +110,6 @@
 <div>
 <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </div>
+<script src="/"></script>
 </body>
 </html>

@@ -148,7 +148,7 @@ public class EmployeesDao implements Employees {
                 deptID = 5;
                 break;
             default:
-                deptID=0;
+                ;
 
         }
         List<Employee> employeesList;

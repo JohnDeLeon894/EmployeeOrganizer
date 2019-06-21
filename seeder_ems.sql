@@ -1,10 +1,5 @@
 use ems_db;
 
-# DROP TABLE departments;
-# TRUNCATE employees;
-# TRUNCATE users;
-
-
 
 INSERT INTO departments (name, manager)
 VALUES ('Technology', 'John Wizard'),
@@ -15,37 +10,52 @@ VALUES ('Technology', 'John Wizard'),
 
 # SELECT * FROM departments;
 
-INSERT INTO employees (gender, first_name, last_name, birth_date, job_title, hire_date, salary, dept_id)
+INSERT INTO titles (id, name)
 VALUES
-       ('M', 'Mykal', 'Tanker', 19920101, 'Administrator', 20190101, 45000, 2),
-       ('M', 'John', 'Wizard', 19700119, 'Senior Programmer', 20190101, 110000, 1),
-       ('F', 'Elle', 'Archer', 20000101, 'Program Architect', 20190101, 60000, 5),
-       ('F', 'Zach', 'Frost', 19890218, 'Lead Accountant', 20190305, 90000, 3),
-       ('F', 'Mike', 'Stopper', 19820429, 'Consultant', 20190220, 60000, 4),
-       ('F', 'Ryan', 'Phone', 19971012, 'Clerk', 20190416, 30000, 2),
-       ('F', 'Justin', 'Blanket', 19840930, 'Programmer', 20190212, 50000, 1),
-       ('F', 'Josh', 'Banket', 19900718, 'Accountant', 20190101, 70000, 3),
-       ('F', 'Bob', 'Will', 19760621, 'Lead Administrator', 20190601, 60000, 2),
-       ('F', 'Siri', 'Phone', 19990423, 'Senior Program Architect', 20190501, 85000, 5);
+        (1, 'Clerk'),
+        (2, 'Administrator'),
+        (3, 'Lead Administrator'),
+        (4, 'Programmer'),
+        (5, 'Senior Programmer'),
+        (6, 'Program Architect'),
+        (7, 'Senior Program Architect'),
+        (8, 'Accountant'),
+        (9, 'Lead Accountant'),
+        (10, 'Consultant');
+
+# SELECT * FROM titles;
+
+INSERT INTO employees (gender, first_name, last_name, birth_date, job_id, hire_date, salary, bio, goals, dept_id)
+VALUES
+       ('M', 'Mykal', 'Tanker', 19920101, 2, 20190101, 45000, 'I come from San Antonio!', 'I want to be good at life', 2),
+       ('M', 'John', 'Wizard', 19700119, 5, 20190101, 110000, 'I come from San Antonio!', 'I want to be good at life', 1),
+       ('F', 'Elle', 'Archer', 20000101, 6, 20190101, 60000, 'I come from San Antonio!', 'I want to be good at life', 5),
+       ('F', 'Zach', 'Frost', 19890218, 9, 20190305, 90000, 'I come from San Antonio!', 'I want to be good at life', 3),
+       ('F', 'Mike', 'Stopper', 19820429, 10, 20190220, 60000, 'I come from San Antonio!', 'I want to be good at life', 4),
+       ('M', 'Ryan', 'Phone', 19971012, 1, 20190416, 30000, 'I come from San Antonio!', 'I want to be good at life', 2),
+       ('M', 'Justin', 'Blanket', 19840930, 4, 20190212, 50000, 'I come from San Antonio!', 'I want to be good at life', 1),
+       ('M', 'Josh', 'Banket', 19900718, 8, 20190101, 70000, 'I come from San Antonio!', 'I want to be good at life', 3),
+       ('M', 'Bob', 'Will', 19760621, 3, 20190601, 60000, 'I come from San Antonio!', 'I want to be good at life', 2),
+       ('F', 'Siri', 'Phone', 19990423, 7, 20190501, 85000, 'I come from San Antonio!', 'I want to be good at life', 5);
 
 # SELECT * FROM employees;
 # SELECT * FROM employees WHERE dept_id = 2;
 
-INSERT INTO users (username, password, email, bio, goals, emp_id)
+
+INSERT INTO users (username, password, email, emp_id)
 VALUES
-       ('Myktank', 'codeup', 'Myktank@live.com', 'how am i so good at life', 'I want to learn', 1),
-       ('Johnwizard', 'codeup', 'Johnwizard@live.com', 'how am i not so good at life', 'I want to
-learn', 2),
-       ('ElleA', 'codeup', 'ElleA@live.com', 'how am i amazingly good at life', 'I want to know',
-        3),
-       ('ZachF', 'codeup', 'ZachF@live.com', 'how am i life', 'I want to see', 4),
-       ('MikeS', 'codeup', 'MikeS@live.com', 'how i  life', 'I want to hear', 5),
-       ('RyanP', 'codeup', 'RyanP@live.com', 'how am i', 'I want you to know', 6),
-       ('JustinB', 'codeup', 'JustinB@live.com', 'how am i good', 'I want you to hear', 7),
-       ('JoshB', 'codeup', 'JoshB@live.com', 'how am i amazingly', 'I want to jump alot', 8),
-       ('Bobwill', 'codeup', 'Bobwill@live.com', 'how am i at life', 'I want progress', 9),
-       ('Siri', 'codeup', 'Siri@live.com', 'how am i amazingly good at life', 'I want to
-success', 10);
+
+       ('Myktank', 'codeup', 'Myktank@live.com', 1),
+       ('Johnwizard', 'codeup', 'Johnwizard@live.com', 2),
+       ('ElleA', 'codeup', 'ElleA@live.com', 3),
+       ('ZachF', 'codeup', 'ZachF@live.com', 4),
+       ('MikeS', 'codeup', 'MikeS@live.com', 5),
+       ('RyanP', 'codeup', 'RyanP@live.com', 6),
+       ('JustinB', 'codeup', 'JustinB@live.com', 7),
+       ('JoshB', 'codeup', 'JoshB@live.com', 8),
+       ('Bobwill', 'codeup', 'Bobwill@live.com', 9),
+       ('Siri', 'codeup', 'Siri@live.com', 10);
+
 
 # SELECT * FROM users;
 

@@ -14,6 +14,9 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/partials/navbar.jsp" %>
+
+
+
 <script type="text/javascript">
 
     // no longer used
@@ -99,7 +102,13 @@
                 <div class="card-body bg_white">
                     <h5 class="card-title"><c:out value = "${emp.first_name} ${emp.last_name}"/></h5>
                     <p class="card-text">ID:  <c:out value="${emp.emp_no}" /></p>
-                    <a href="#" class="btn btn-primary disabled">View Employee</a>
+                    <form action="/employee-info" method="post">
+
+                    <button class="btn btn-primary " name="id" type="submit"
+                            value="${emp.emp_no}"
+                    >View
+                        Employee</button>
+                    </form>
                 </div>
             </div>
 

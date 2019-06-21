@@ -9,6 +9,12 @@ public class Employee {
     private String last_name;
     private String gender;
     private Date hire_date;
+    private String manager_name;
+    private String department;
+    private String email;
+    private String goals;
+    private String bio;
+    private String title;
 
     public Employee() {
 
@@ -50,6 +56,30 @@ public class Employee {
         return hire_date;
     }
 
+    public String getManager_name() {
+        return manager_name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getGoals() {
+        return goals;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
     // setters
 
 
@@ -75,6 +105,30 @@ public class Employee {
 
     public void setHire_date(Date hire_date) {
         this.hire_date = hire_date;
+    }
+
+    public void setManager_name(String manager_name) {
+        this.manager_name = manager_name;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setGoals(String goals) {
+        this.goals = goals;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
 

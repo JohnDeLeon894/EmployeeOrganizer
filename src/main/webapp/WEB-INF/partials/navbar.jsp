@@ -20,7 +20,7 @@
                 <a class="nav-link" href="/employees-list">Employee List</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/employee-search">Employee Search</a>
+                <a class="nav-link" href="/rigister">Retister User</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

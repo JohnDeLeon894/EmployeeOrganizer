@@ -17,7 +17,7 @@
 
 <div class="container">
     <h1>Please fill in your information.</h1>
-    <form action="/register" method="post">
+    <form action="/registeruser" method="post">
         <div class="form-group">
             <label for="username">Username</label>
             <input id="username" name="username" class="form-control" type="text" required>
@@ -36,12 +36,15 @@
         </div>
         <div class="form-group">
             <label for="emp_id">Employee ID</label>
-            <input id="emp_id" name="emp_id" class="form-control" type="number" required>
+            <input id="emp_id" name="emp_id" class="form-control" type="text" required>
 
         </div>
         <input type="submit" class="btn btn-primary btn-block">
     </form>
 </div>
-
+<script>
+	<%@ include file="/WEB-INF/js/jobTitleChoice.js"%>
+</script>
+<%@include file="partials/footer.jsp" %>
 </body>
 </html>

@@ -17,12 +17,12 @@ public class MySQLConnection {
             );
             Statement statement = connection.createStatement();
 
-            String query = "select first_name, last_name, emp_no from employees limit 10";
+            String query = "select first_name, last_name, id from employees limit 10";
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
                 System.out.println(" name = " + rs.getString("first_name")+ " " + rs.getString(
                         "last_name"));
-                System.out.println("Emp # = " + rs.getInt( "emp_no"));
+                System.out.println("Emp # = " + rs.getInt( "id"));
             }
 
 

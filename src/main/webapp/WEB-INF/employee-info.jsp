@@ -21,7 +21,7 @@
             <img src="https://robohash.org/${emp.first_name}?set=set4" alt="${emp.first_name}">
             <div class="card-body">
                 <h1>${emp.first_name} ${emp.last_name}</h1>
-                <p>Employee No.: ${emp.emp_no}</p>
+                <p>Employee No.: ${emp.id}</p>
             </div>
         </div>
     </div>
@@ -55,17 +55,17 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h3>Title:</h3> ${emp.title}
+                            <h3>Title:</h3> ${emp.job_title}
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h3>Department:</h3> <p>${emp.department}</p>
+                            <h3>Department:</h3> <p>${emp.dept_name}</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h3>Manager:</h3> ${emp.manager_name}
+                            <h3>Manager:</h3> ${emp.manager}
                         </div>
                     </div>
                     <div class="card">

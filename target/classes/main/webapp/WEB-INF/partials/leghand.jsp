@@ -7,9 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<footer class="fixed-bottom">
+<footer class="fixed-bottom leghand">
 
-    <code>Leghand stuff will go here.</code>
+    <p>Leghand stuff will go here.</p>
 
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -22,3 +22,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+<<<<<<< HEAD:target/classes/main/webapp/WEB-INF/partials/leghand.jsp
+=======
+
+>>>>>>> master:src/main/webapp/WEB-INF/partials/footer.jsp

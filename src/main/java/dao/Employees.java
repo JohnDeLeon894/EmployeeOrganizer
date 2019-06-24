@@ -9,8 +9,9 @@ public interface Employees {
     List<Employee> searchID(String searchQuery);
     List<Employee> searchDept(String searchQuery);
     Employee allInfo(int id);
-    Employee deptInfo(int id, Employee emp);
+    Employee deptInfo(int deptId, Employee emp);
     Employee userInfo(int id, Employee emp);
+    Employee jobInfo(int jobID, Employee emp);
 
     long insert(Employee emp);
 

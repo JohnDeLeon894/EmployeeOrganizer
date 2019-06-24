@@ -12,8 +12,6 @@ public class EmployeesDao implements Employees {
     /*
      *
      * Create a class named dao.EmployeesDao that implements the Ads interface
-
-
      * This class should have a private instance property named connection of type Connection that is
      * initialized in the constructor. Define your constructor so that it accepts an instance of
      * your Config class so that it can obtain the database credentials.
@@ -30,19 +28,19 @@ public class EmployeesDao implements Employees {
         Employee emp = DaoFactory.empListDao().allInfo(1);
         System.out.println(
                 "Emp ID = " +
-                        emp.getEmp_no() +
+                        emp.getId() +
                         "\n First name = " +
                         emp.getFirst_name() +
                         "\n Last name = " +
                         emp.getLast_name() +
                         "\n Job title = "+
-                        emp.getTitle() +
+                        emp.getJob_title() +
                         "\n Hire date = "+
                         emp.getHire_date()+
                         "\n Department = "+
-                        emp.getDepartment()+
+                        emp.getDept_name()+
                         "\n Manager = "+
-                        emp.getManager_name()+
+                        emp.getManager()+
                         "\n Email Address = "+
                         emp.getEmail()+
                         "\n Career Goals = "+
@@ -82,7 +80,7 @@ public class EmployeesDao implements Employees {
                 Employee emp = new Employee();
                 emp.setFirst_name(rs.getString("first_name"));
                 emp.setLast_name(rs.getString("last_name"));
-                emp.setEmp_no(rs.getInt("id"));
+                emp.setId(rs.getInt("id"));
                 emp.setGender(rs.getString("gender"));
                 emp.setBirth_date(rs.getDate("birth_date"));
                 emp.setHire_date(rs.getDate("hire_date"));
@@ -193,13 +191,20 @@ public class EmployeesDao implements Employees {
                 //System.out.println(emp.getFirst_name());
                 emp.setLast_name(rs.getString("last_name"));
                 //System.out.println(emp.getLast_name());
-                emp.setEmp_no(rs.getInt("id"));
-                //System.out.println(emp.getEmp_no());
-                emp.setTitle(rs.getString("job_title"));
+                emp.setId(rs.getInt("id"));
+                //System.out.println(emp.getId()());
+//                emp.setTitle(rs.getString("job_title"));
                 emp.setHire_date(rs.getDate("hire_date"));
+                emp.setGoals(rs.getString("goals"));
+                emp.setBio(rs.getString("bio"));
             }
-            deptInfo(id, emp);
+
             userInfo(id, emp);
+            int deptId = rs.getInt("dept_id");
+            deptInfo(deptId, emp);
+            int jobId = rs.getInt("job_id");
+            jobInfo(jobId, emp);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -207,15 +212,15 @@ public class EmployeesDao implements Employees {
     }
 
     @Override
-    public Employee deptInfo(int id, Employee emp) {
-        String query = String.format("select * from departments where id = %d", id);
+    public Employee deptInfo(int deptId, Employee emp) {
+        String query = String.format("select * from departments where id = %d", deptId);
         System.out.println("dept info ran with "+query);
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next()) {
-                emp.setDepartment(rs.getString("name"));
-                emp.setManager_name(rs.getString("manager"));
+                emp.setDept_name(rs.getString("name"));
+                emp.setManager(rs.getString("manager"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -233,8 +238,7 @@ public class EmployeesDao implements Employees {
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next()) {
                 emp.setEmail(rs.getString("email"));
-                emp.setGoals(rs.getString("goals"));
-                emp.setBio(rs.getString("bio"));
+
             }
 
         } catch (SQLException e) {
@@ -243,9 +247,25 @@ public class EmployeesDao implements Employees {
         return emp;
     }
 
+    public Employee jobInfo(int jobID, Employee emp){
+        String query = String.format("SELECT * FROM titles WHERE id = %d", jobID);
+        try{
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            if (rs.next()){
+                emp.setJob_title(rs.getString("name"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return emp;
+    }
+
     //    private static void populateUsersTable(){
 //        List<Employee> employeeList = DaoFactory.empListDao().all();
 //    }
+
+
 
     @Override
     public long insert(Employee emp) {
@@ -265,8 +285,8 @@ public class EmployeesDao implements Employees {
                 System.out.println(emp.getFirst_name());
                 emp.setLast_name(rs.getString("last_name"));
                 System.out.println(emp.getLast_name());
-                emp.setEmp_no(rs.getInt("id"));
-                System.out.println(emp.getEmp_no());
+                emp.setId(rs.getInt("id"));
+                System.out.println(emp.getId());
                 employeesList.add(emp);
 
             }

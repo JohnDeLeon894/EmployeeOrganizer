@@ -6,10 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<br class="my-5">
 
-<footer class="fixed-bottom leghand">
+<footer class="bottomNav leghand navbar fixed-bottom">
 
-    <p>Leghand stuff will go here.</p>
+    <a href=# > Copyright © 2019 </a>
+<%--    <a href=“/about”>About</a>--%>
 
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

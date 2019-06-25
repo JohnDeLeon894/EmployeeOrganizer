@@ -82,13 +82,13 @@
                      aria-labelledby="nav-profile-tab">
                     <h4>Career Goal: </h4>
 
-                    <p>${emp.goals}</p>
+                    <p> <c:out value="${emp.goals}"></c:out></p>
                     <hr class="my-2">
                     <h4>Bio: </h4>
-                    <p>${emp.bio}</p>
+                    <p><c:out value="${emp.bio}"></c:out> </p>
 
                     <c:if test="${emp.id == user.emp_id}">
-                        <form action="/employee-goals-bio-form" method="get">
+                        <form action="/employee-goals-bio-form" method="post">
                             <input type="text" name="id" value="${emp.id}" hidden>
 
 

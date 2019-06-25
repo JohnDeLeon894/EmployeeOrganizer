@@ -14,21 +14,17 @@
 </head>
 <body>
 <%@include file="partials/navbar.jsp"%>
-<nav class="navbar search-nav-style ">
-    <a class="navbar-brand nav-li">Search Employee by Name</a>
-    <form class="form-inline search-form">
-        <input class="form-control mr-sm-5 search-bar-style" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 search-btn-style" type="submit">Search</button>
+    <nav class="navbar search-nav-style ">
+        <a class="navbar-brand nav-li">Search Employee by Name</a>
+        <form class="form-inline search-form">
+            <input class="form-control mr-sm-5 search-bar-style" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 search-btn-style" type="submit">Search</button>
 
-    </form>
-</nav>
-<div class="container">
-
-
-</div>
-<div>
-    <%@ include file="/WEB-INF/partials/leghand.jsp" %>
-</div>
+        </form>
+    </nav>
+    <div>
+        <%@ include file="/WEB-INF/partials/leghand.jsp" %>
+    </div>
 <%--<script src="/js/main.js"></script>--%>
 </body>
 </html>

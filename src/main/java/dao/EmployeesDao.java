@@ -46,16 +46,22 @@ public class EmployeesDao implements Employees {
 
     public List<Employee> all(int perPage, int pageNum) {
         List<Employee> employeesList = new ArrayList<Employee>();
-        System.out.println("perpage starts at " + perPage);
+//        System.out.println("perpage starts at " + perPage);
         try {
-            Statement stmt = connection.createStatement();
+            //Statement stmt = connection.createStatement();
             //perPage-=2;
-            System.out.println("perpage before query string = " + perPage);
+//            System.out.println("perpage before query string = " + perPage);
 
-            String query = String.format("SELECT * FROM employees limit %d offset %d", perPage,
-                    (pageNum * perPage) - perPage);
-            System.out.println(query);
-            ResultSet rs = stmt.executeQuery(query);
+//            String query = String.format("SELECT * FROM employees limit %d offset %d", perPage,
+//                    (pageNum * perPage) - perPage);
+            int num = (pageNum * perPage) - perPage;
+            String preparedQuery = "SELECT * FROM employees limit ? offset ?";
+
+            PreparedStatement stmt = connection.prepareStatement(preparedQuery);
+            stmt.setInt(1,perPage);
+            stmt.setInt(2, num);
+//            System.out.println(query);
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Employee emp = new Employee();
                 emp.setFirst_name(rs.getString("first_name"));
@@ -163,10 +169,13 @@ public class EmployeesDao implements Employees {
 
         Employee emp = new Employee();
         List<String> team = new ArrayList<>();
-        String formatQuery = String.format("select * from employees where id = %d", id);
+//        String formatQuery = String.format("select * from employees where id = %d", id);
+        String prepQuery = "SELECT * FROM employees WHERE id = ?";
         try {
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(formatQuery);
+//            Statement stmt = connection.createStatement();
+            PreparedStatement stmt = connection.prepareStatement(prepQuery);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 emp.setFirst_name(rs.getString("first_name"));
                 //System.out.println(emp.getFirst_name());
@@ -199,11 +208,14 @@ public class EmployeesDao implements Employees {
 
     @Override
     public Employee deptInfo(int deptId, Employee emp) {
-        String query = String.format("select * from departments where id = %d", deptId);
-        System.out.println("dept info ran with "+query);
+//        String query = String.format("select * from departments where id = %d", deptId);
+        String prepQuery = "SELECT * FROM departments WHERE id = ?";
+//        System.out.println("dept info ran with "+query);
         try {
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            PreparedStatement stmt = connection.prepareStatement(prepQuery);
+//            Statement stmt = connection.createStatement();
+            stmt.setInt(1, deptId);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 emp.setDept_name(rs.getString("name"));
                 emp.setManager(rs.getString("manager"));
@@ -234,10 +246,13 @@ public class EmployeesDao implements Employees {
     }
 
     public Employee jobInfo(int jobID, Employee emp){
-        String query = String.format("SELECT * FROM titles WHERE id = %d", jobID);
+//        String query = tring.format("SELECT * FROM titles WHERE id = %d", jobID);
+        String prepQuery = "SELECT * FROM titles WHERE id = ?";
         try{
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            //Statement stmt = connection.createStatement();
+            PreparedStatement stmt = connection.prepareStatement(prepQuery);
+            stmt.setInt(1,jobID);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next()){
                 emp.setJob_title(rs.getString("name"));
             }
@@ -316,24 +331,28 @@ public class EmployeesDao implements Employees {
     }
 
     private List<String> teamList(int deptId, Employee emp){
-        System.out.println("running teamlist");
+//        System.out.println("running teamlist");
         List<String> team = new ArrayList<>();
         try{
-            String formatQuery = "SELECT first_name, last_name FROM employees where dept_id = " +
-                    deptId;
+//            String formatQuery = "SELECT first_name, last_name FROM employees where dept_id = " +
+//                    deptId;
+            String preparedQuery = "SELECT first_name, last_name FROM employees WHERE dept_id = ?";
             String firstName = "";
             String lastName = "";
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(formatQuery);
-            System.out.println("teamList ran with: "+formatQuery);
+            PreparedStatement st = connection.prepareStatement(preparedQuery);
+            st.setInt(1,deptId);
+            //Statement stmt = connection.createStatement();
+           // ResultSet rs = stmt.executeQuery(formatQuery);
+            ResultSet rs = st.executeQuery();
+//            System.out.println("teamList ran with: "+formatQuery);
             while (rs.next()) {
 
                 firstName = rs.getString("first_name");
                 lastName = rs.getString("last_name");
                 if (!emp.getManager().equalsIgnoreCase(firstName+" "+lastName)) {
                     team.add(String.format("%s %s", firstName, lastName));
-                    System.out.println(firstName+" "+lastName+
-                            "was added to the list");
+//                    System.out.println(firstName+" "+lastName+
+//                            "was added to the list");
                 }
 
             }
@@ -348,18 +367,18 @@ public class EmployeesDao implements Employees {
     private List<Employee> processEmpList(String formatQuery) {
 
         List<Employee> employeesList = new ArrayList<Employee>();
-        System.out.println(formatQuery);
+//        System.out.println(formatQuery);
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(formatQuery);
             while (rs.next()) {
                 Employee emp = new Employee();
                 emp.setFirst_name(rs.getString("first_name"));
-                System.out.println(emp.getFirst_name());
+//                System.out.println(emp.getFirst_name());
                 emp.setLast_name(rs.getString("last_name"));
-                System.out.println(emp.getLast_name());
+//                System.out.println(emp.getLast_name());
                 emp.setId(rs.getInt("id"));
-                System.out.println(emp.getId());
+//                System.out.println(emp.getId());
                 employeesList.add(emp);
 
             }

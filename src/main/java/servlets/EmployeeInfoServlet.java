@@ -16,9 +16,9 @@ public class EmployeeInfoServlet extends HttpServlet {
 //        String search = request.getParameter("search");
 
         if (request.getParameterMap().containsKey("update")) {
-            System.out.println("if hit true");
+//            System.out.println("if hit true"); debug info
             if(request.getParameter("update").equalsIgnoreCase("true")){
-                System.out.println("second if hit true");
+//                System.out.println("second if hit true");
                 String bio = request.getParameter("bio");
                 String goals = request.getParameter("goals");
                 int id = Integer.parseInt(request.getParameter("id"));
@@ -39,7 +39,7 @@ public class EmployeeInfoServlet extends HttpServlet {
         response.sendRedirect("/employees-search");
         request.setAttribute("emp", DaoFactory.empListDao().allInfo(1));
         request.getRequestDispatcher("WEB-INF/employee-info.jsp").forward(request, response);
-        System.out.println("test");
+//        System.out.println("test");
 
     }
 }

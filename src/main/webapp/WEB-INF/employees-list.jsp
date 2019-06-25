@@ -52,30 +52,30 @@
 
     <%--    </form>--%>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light search-nav-style">
         <a class="navbar-brand">Employee Search</a>
         <form class="form-inline" method="post">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="name" value="name" name="stype"
+                <input class="form-check-input radio-btn" type="radio" id="name" value="name" name="stype"
                        checked="checked">
                 <label class="form-check-label" for="name">Name</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="id" value="id" name="stype">
+                <input class="form-check-input radio-btn" type="radio" id="id" value="id" name="stype">
                 <label class="form-check-label" for="id">ID</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="dept" value="dept" name="stype">
+                <input class="form-check-input radio-btn" type="radio" id="dept" value="dept" name="stype">
                 <label class="form-check-label" for="dept">Department</label>
             </div>
-            <input class="form-control mr-sm-5"
+            <input class="form-control mr-sm-5 search-bar-style"
                    type="search"
                    placeholder="Search"
                    name="search"
                    id="search"
                    aria-label="Search">
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn my-2 my-sm-0 search-btn-style" type="submit">Search</button>
         </form>
     </nav>
 
@@ -93,7 +93,7 @@
                     <p class="card-text">ID: <c:out value="${emp.id}"/></p>
                     <form action="/employee-info" method="post">
 
-                        <button class="btn btn-primary nav-style" name="id" type="submit"
+                        <button class="btn card-btn-style" name="id" type="submit"
                                 value="${emp.id}">View Employee</button>
                     </form>
                         <c:if test="${isadmin}" >
@@ -109,6 +109,11 @@
         </c:forEach>
     </div>
 
+</div>
+<div class="foat-left">
+    <br>
+    <br>
+    <br>
 </div>
 <div>
     <%@include file="partials/leghand.jsp" %>

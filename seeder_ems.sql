@@ -45,16 +45,16 @@ VALUES
 INSERT INTO users (username, password, email, emp_id)
 VALUES
 
-       ('Myktank', 'codeup', 'Myktank@live.com', 1),
-       ('Johnwizard', 'codeup', 'Johnwizard@live.com', 2),
-       ('ElleA', 'codeup', 'ElleA@live.com', 3),
-       ('ZachF', 'codeup', 'ZachF@live.com', 4),
-       ('MikeS', 'codeup', 'MikeS@live.com', 5),
-       ('RyanP', 'codeup', 'RyanP@live.com', 6),
-       ('JustinB', 'codeup', 'JustinB@live.com', 7),
-       ('JoshB', 'codeup', 'JoshB@live.com', 8),
-       ('Bobwill', 'codeup', 'Bobwill@live.com', 9),
-       ('Siri', 'codeup', 'Siri@live.com', 10);
+       ('Myktank', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'Myktank@live.com', 1),
+       ('Johnwizard', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'Johnwizard@live.com', 2),
+       ('ElleA', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'ElleA@live.com', 3),
+       ('ZachF', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'ZachF@live.com', 4),
+       ('MikeS', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'MikeS@live.com', 5),
+       ('RyanP', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'RyanP@live.com', 6),
+       ('JustinB', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'JustinB@live.com', 7),
+       ('JoshB', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'JoshB@live.com', 8),
+       ('Bobwill', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'Bobwill@live.com', 9),
+       ('Siri', '$2a$10$/Lrs9koopJu3O2SgWJGpHuwO6A1HYM6c7nVU6eM1h1Gqnqh8hB4Mi', 'Siri@live.com', 10);
 
 
 # SELECT * FROM users;

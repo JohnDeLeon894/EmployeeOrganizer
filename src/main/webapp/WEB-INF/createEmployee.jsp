@@ -21,7 +21,7 @@
     <c:when test="${isadmin}">
 
 <div class="container">
-    <h1>Please fill in your information.</h1>
+    <h2>Please fill in your information.</h2>
     <form action="/registeremployee" method="post">
         <div class="form-group">
             <label for="gender">What is your Gender?</label>
@@ -83,6 +83,9 @@
     </c:otherwise>
 
 </c:choose>
+
+
+
 
 <%@include file="partials/leghand.jsp" %>
 

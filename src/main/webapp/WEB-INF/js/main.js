@@ -3,7 +3,7 @@
 "use strict";
 var emps = '${emps}';
 
-console.log("hello world");
+// console.log("hello world");
 
 function renderEmps(emps) {
 	var html = '<div class="coffee" id= coffee.id>';

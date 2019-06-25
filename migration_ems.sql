@@ -1,10 +1,12 @@
+drop database ems_db;
 create database ems_db;
 
 use ems_db;
 
-DROP TABLE IF EXISTS departments;
 DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS departments;
+
 
 CREATE TABLE departments (
                         id INT UNSIGNED NOT NULL AUTO_INCREMENT,

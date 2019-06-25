@@ -4,7 +4,7 @@ import mysql.Config;
 
 public class DaoFactory {
     private static Users usersDao;
-    private static Config config = new Config();
+    protected static Config config = new Config();
     private static Employees empListDao;
 
     public static Employees empListDao() {
